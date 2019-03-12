@@ -2,9 +2,7 @@
 
 ## Tehtävät
 
-### Viikko 1
-
-Olipas **jänniä** juttuja ensimmäisellä viikolla. Tuli opittua paljon uutta, vaikken ihan ymmärrä vielä *gitiä*.
+### *Viikko 1*
 
 [gitlog.txt](https://github.com/jennalack/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
