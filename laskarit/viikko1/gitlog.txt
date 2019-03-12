@@ -1,4 +1,5 @@
-Jenna-Lackbergh:tiedostoja jennalaakkonen$ git log --stat | cat
+Editoidaan vähän 
+
 commit bfdfe952cebc5295d6da252e82eaf59bc96d4971
 Author: Jenna Lackbergh <jenna.lackbergh@aalto.fi>
 Date:   Tue Mar 12 10:06:24 2019 +0200
