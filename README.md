@@ -6,6 +6,7 @@
 
 Olipas **jänniä** juttuja ensimmäisellä viikolla. Tuli opittua paljon uutta, vaikken ihan ymmärrä vielä *gitiä*.
 
-https://github.com/jennalack/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt
+[gitlog.txt](https://github.com/jennalack/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
-https://github.com/jennalack/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt
+[komentorivi.txt](https://github.com/jennalack/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+
