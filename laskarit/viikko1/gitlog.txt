@@ -1,0 +1,22 @@
+Jenna-Lackbergh:tiedostoja jennalaakkonen$ git log --stat | cat
+commit bfdfe952cebc5295d6da252e82eaf59bc96d4971
+Author: Jenna Lackbergh <jenna.lackbergh@aalto.fi>
+Date:   Tue Mar 12 10:06:24 2019 +0200
+
+    uudelleen nimetty ja poistettu
+
+ file2           | 0
+ file1 => file22 | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit c1bb5295f0cd87cde20b57ad48a206c1fa002800
+Author: Jenna Lackbergh <jenna.lackbergh@aalto.fi>
+Date:   Tue Mar 12 10:03:48 2019 +0200
+
+    tiedostot luotu
+
+ file1 | 0
+ file2 | 0
+ file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
