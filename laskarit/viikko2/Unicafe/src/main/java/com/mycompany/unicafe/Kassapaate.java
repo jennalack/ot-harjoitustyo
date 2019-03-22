@@ -25,6 +25,7 @@ public class Kassapaate {
         if (maksu >= 400) {
             this.kassassaRahaa = kassassaRahaa + 400;
             this.maukkaat++;
+            System.out.println(maksu-400);
             return maksu - 400;
         } else {
             return maksu;
@@ -55,6 +56,7 @@ public class Kassapaate {
         if (summa >= 0) {
             kortti.lataaRahaa(summa);
             this.kassassaRahaa += summa;
+//            System.out.println(kassassaRahaa);
         } else {
             return;
         }
