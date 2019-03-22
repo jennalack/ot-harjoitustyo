@@ -16,4 +16,6 @@ Alta löytyy tämän viikon tehtävät!
 
 ### *Sovellus*
 
+[Dokumentaatio-kansio](https://github.com/jennalack/ot-harjoitustyo/tree/master/lintuapp/dokumentaatio)
+
 [Vaatimusmäärittely](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/vaatimusmaarittely.md)
