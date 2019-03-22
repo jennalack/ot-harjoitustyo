@@ -12,5 +12,5 @@ Alta löytyy tämän viikon tehtävät!
 
 ### *Viikko 2*
 
-[viikko2teht] (https://github.com/jennalack/ot-harjoitustyo/tree/master/laskarit/viikko2)
+[viikko 2 tehtävät täällä](https://github.com/jennalack/ot-harjoitustyo/tree/master/laskarit/viikko2)
 
