@@ -12,6 +12,8 @@ Sovelluksella on ainakin alkuvaiheessa vain yksi käyttäjä, joka on *normaalik
 
 Sovellus koostuu kolmesta eri näkymästä. Ensimmäisenä käyttäjälle avautuu kirjautumisikkuna, josta on mahdollista siirtyä uuden käyttäjän luomiseen tai onnistuneen kirjautumisen jälkeen kolmanteen näkymään, jossa voi tallentaa nähtyjä lajeja. 
 
+![Käyttöliittymäkuva](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kuvat/lintuapp.jpg)
+
 ## Perusversion tarjoama toiminnallisuus
 
 **Ennen kirjautumista**
