@@ -14,3 +14,6 @@ Alta löytyy tämän viikon tehtävät!
 
 [viikko 2 tehtävät täällä](https://github.com/jennalack/ot-harjoitustyo/tree/master/laskarit/viikko2)
 
+### *Sovellus*
+
+[Vaatimusmäärittely](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/vaatimusmaarittely.md)
