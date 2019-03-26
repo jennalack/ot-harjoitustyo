@@ -125,7 +125,7 @@ public class KassapaateTest {
     
     @Test
     public void tulostaaLounaatKunSyoEdullisestiKateisella() {
-        kassa.syoEdullisesti(1000);
+        kassa.syoEdullisesti(1000s);
         assertEquals(1, kassa.edullisiaLounaitaMyyty());
     }
     
