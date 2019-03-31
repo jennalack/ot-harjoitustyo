@@ -1,21 +1,21 @@
-# Ohjelmistotekniikka, harjoitustyö
+# LintuApp
 
-## Tehtävät
+Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa näkemistään lintulajeista. Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä, joilla jokaisella on oma listansa lintuhavainnoistaan.
 
-### *Viikko 1*
+## (Tehtävät
 
-Alta löytyy tämän viikon tehtävät! 
+Viikko 3: En tiennyt, mihin tämä pitäisi laittaa, jos linkit laskareihin piti poistaa. 
+[Kuvat viikon tehtävistä](https://github.com/jennalack/ot-harjoitustyo/blob/master/laskarit/viikko3/kuvat.md))
 
-[gitlog.txt](https://github.com/jennalack/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
-[komentorivi.txt](https://github.com/jennalack/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
-
-### *Viikko 2*
-
-[viikko 2 tehtävät täällä](https://github.com/jennalack/ot-harjoitustyo/tree/master/laskarit/viikko2)
-
-### *Sovellus*
+## Dokumentaatio
 
 [Dokumentaatio-kansio](https://github.com/jennalack/ot-harjoitustyo/tree/master/lintuapp/dokumentaatio)
 
 [Vaatimusmäärittely](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/vaatimusmaarittely.md)
+
+[Työaikakirjanpito](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/tyoaikakirjanpito.md)
+
+## Releaset
+
+[Sovellus](https://github.com/jennalack/ot-harjoitustyo/tree/master/lintuapp/Birdapp/src/main/java/birdapp)
