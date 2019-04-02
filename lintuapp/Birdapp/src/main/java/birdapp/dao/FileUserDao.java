@@ -35,17 +35,17 @@ public class FileUserDao implements UserDao {
         }
     }
     
-//    @Override
+    @Override
     public List<User> getAll() {
         return users;
     }
     
-//    @Override
+    @Override
     public User findByUsername(String username) {
         return users.stream().filter(u->u.getUsername().equals(username)).findFirst().orElse(null);
     }
     
-//    @Override
+    @Override
     public User create(User user) throws Exception {
         users.add(user);
         save();

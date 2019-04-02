@@ -2,12 +2,12 @@
 package birdapp.dao;
 
 import java.util.List;
-//import birdapp.domain.User;
+import birdapp.domain.User;
 
 public interface UserDao {
-//    User create(User user) throws Exception;
-//
-//    User findByUsername(String username);
-//
-//    List<User> getAll();
+    User create(User user) throws Exception;
+
+    User findByUsername(String username);
+
+    List<User> getAll();
 }
