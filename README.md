@@ -1,6 +1,6 @@
 # LintuApp
 
-Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa näkemistään lintulajeista. Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä, joilla jokaisella on oma listansa lintuhavainnoistaan.
+Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa näkemistään lintulajeista. Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä, joilla jokaisella on oma listansa lintuhavainnoistaan. Ensimmäisessä sovellusversiossa on vasta käyttöliittymä (kirjautuminen, käyttäjän luominen yms.), muttei mahdollisuutta vielä nähtyjen lintulajien merkitsemiseen. 
 
 ## Dokumentaatio
 
