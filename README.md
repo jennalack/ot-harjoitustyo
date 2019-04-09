@@ -8,6 +8,8 @@ Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa näkemistään lin
 
 [Vaatimusmäärittely](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/vaatimusmaarittely.md)
 
+[Arkkitehtuuri](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/arkkitehtuuri.md)
+
 [Työaikakirjanpito](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/tyoaikakirjanpito.md)
 
 ## Releaset
