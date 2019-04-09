@@ -9,6 +9,6 @@ public interface BirdappDao {
     Birdapp create(Birdapp birdapp) throws Exception;
     
     List<Birdapp> getAll();
-    
+  
     void setDone(int id) throws Exception;
 }

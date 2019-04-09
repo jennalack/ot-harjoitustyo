@@ -1,9 +1,12 @@
 
 package birdapp.domain;
 
+import java.util.*;
+
 
 public class Birdapp {
     private int id;
+//    private List<String> content2;
     private String content;
     private boolean done;
     private User user;
@@ -20,6 +23,7 @@ public class Birdapp {
         this.user=user;
         this.done=false;
     }
+    
     
     public void setId(int id) {
         this.id=id;

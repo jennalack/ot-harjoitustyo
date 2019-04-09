@@ -1,7 +1,0 @@
-1;pese pyykit;true;jennalack
-2;soita viulua;true;jennalack
-3;pese pyykit;true;jennalack
-4;pese pyykit;true;jennalack
-5;Pese pyykit;true;jennalack
-6;pese pyykit;true;jennalack
-7;moi;true;jennalack

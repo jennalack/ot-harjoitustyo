@@ -26,6 +26,17 @@ import birdapp.dao.FileUserDao;
 import birdapp.dao.FileBirdappDao;
 import birdapp.domain.BirdappService;
 import birdapp.domain.Birdapp;
+import java.util.*;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Orientation;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ListView;
+import javafx.scene.control.cell.CheckBoxListCell;
+import javafx.util.Callback;
 
 
 public class BirdappUi extends Application {
@@ -53,10 +64,21 @@ public class BirdappUi extends Application {
     }
 //    
     public Node createBirdNode(Birdapp birdapp){
-        HBox box = new HBox(10);
+        CheckBox cb = new CheckBox();
+        HBox box = new HBox(cb);
         Label label = new Label(birdapp.getContent());
         label.setMinHeight(28);
-        Button button = new Button("done");
+        
+//        ObservableList<String> birds = FXCollections.observableArrayList(
+//          "Alli", "Haapana", "Haahka");
+//        ListView<String> lv = new ListView<>(birds);
+//        lv.setCellFactory(CheckBoxListCell.forListView(item -> i));
+//        VBox.setVgrow(lv, Priority.ALWAYS);
+//
+//        box.getChildren().addAll(cb, label, lv);
+//        showTwitterListSelection();
+        
+        Button button = new Button("Seen");
         button.setOnAction(e->{birdService.markDone(birdapp.getId());
         redrawBirdapp();
         });
@@ -83,13 +105,13 @@ public class BirdappUi extends Application {
         VBox loginPane = new VBox(10);
         HBox inputPane = new HBox(10);
         loginPane.setPadding(new Insets(10));
-        Label loginLabel = new Label("username");
+        Label loginLabel = new Label("Username");
         TextField usernameInput = new TextField();
         
         inputPane.getChildren().addAll(loginLabel, usernameInput);
         Label loginMessage = new Label();
         
-        Button loginButton = new Button("login");
+        Button loginButton = new Button("Login");
         Button createButton = new Button("Create new user");
         loginButton.setOnAction(e->{
             String username = usernameInput.getText();
@@ -175,20 +197,98 @@ public class BirdappUi extends Application {
         TextField newBirdInput = new TextField();
         createForm.getChildren().addAll(newBirdInput, spacer, createBird);
         
-        birdnodes = new VBox(10);
-        birdnodes.setMaxWidth(280);
-        birdnodes.setMinWidth(280);
+        birdnodes = new VBox();
+//        birdnodes.setMaxWidth(280);
+//        birdnodes.setMinWidth(280);
         redrawBirdapp();
+//        ObservableList<String> birds = FXCollections.<String>observableArrayList("Alli", "Haahka", "Haapana", "Kuovi");
+//        ListView<String> birdsview = new ListView<>(birds);
+//        birdsview.setOrientation(Orientation.VERTICAL);
+//        
+//         ListView<String> checklist = new ListView<>(birds);
         
-        birdScrollbar.setContent(birdnodes);
-        mainPane.setBottom(createForm);
+    ListView<String> birdView = new ListView<>();
+        String[] birds = {"Kyhmyjoutsen","Pikkujoutsen","Laulujoutsen","Metsähanhi", "Lyhytnokkahanhi","Tundrahanhi","Kiljuhanhi","Merihanhi","Lumihanhi","Tiibetinhanhi","Kanadanhanhi","Valkoposkihanhi","Sepelhanhi","Punakaulahanhi","Pikkukanadanhanhi","Ruostesorsa","Ristisorsa","Mandariinisorsa","Haapana","Amerikanhaapana","Harmaasorsa","Tavi","Amerikantavi","Sinisorsa","Nokisorsa","Jouhisorsa","Heinätavi","Sinisiipitavi","Lapasorsa","Punapäänarsku","Punasotka","Amerikantukkasotka","Ruskosotka","Tukkasotka","Lapasotka","Pikkulapasotka","Haahka","Kyhmyhaahka","Allihaahka","Virta-alli","Alli","Mustalintu","Amerikanmustalintu","Pilkkaniska","Pilkkasiipi","Kyhmypilkkasiipi","Telkkä","Uivelo","Tukkakoskelo","Isokoskelo","Kuparisorsa"};
+        birdView.getItems().addAll(birds);
+        birdView.setCellFactory(CheckBoxListCell.forListView(new Callback<String, ObservableValue<Boolean>>() {
+            @Override
+            public ObservableValue<Boolean> call(String item) {
+            BooleanProperty observable = new SimpleBooleanProperty();
+            observable.addListener((obs, wasSelected, isNowSelected)
+                -> System.out.println("Check box for " + item + " changed from " + wasSelected + " to " + isNowSelected)
+            );
+            return observable;
+            }
+    }));
+    
+        VBox birdSelection = new VBox();
+        birdSelection.setSpacing(10);
+        birdSelection.getChildren().addAll(birdView);
+ 
+        birdScrollbar.setContent(birdSelection);
+//        mainPane.setBottom(createForm);
         mainPane.setTop(menuPane);
         
-        createBird.setOnAction(e->{
-            birdService.createBirdapp(newBirdInput.getText());
-            newBirdInput.setText("");
-            redrawBirdapp();
-        });
+//        ArrayList<String> birds = new ArrayList<>();
+//         birds.add("Alli");
+//        birds.add("Allihaahka");
+//        birds.add("Amerikanhaapana");
+//        birds.add("Amerikanmustalintu");
+//        birds.add(	"Amerikantavi");
+//        birds.add(	"Amerikantukkasotka");
+//        birds.add(	"Haahka");
+//        birds.add(	"Haapana");
+//        birds.add(	"Harmaasorsa");
+//        birds.add(	"Heinätavi");
+//        birds.add(	"Isokoskelo");
+//        birds.add(	"Jouhisorsa");
+//        birds.add(	"Kanadanhanhi");
+//        birds.add(	"Kiljuhanhi");
+//        birds.add(	"Kuparisorsa");
+//        birds.add(	"Kyhmyhaahka");
+//        birds.add(	"Kyhmyjoutsen");
+//        birds.add(	"Kyhmypilkkasiipi");
+//        birds.add(	"Lapasorsa");
+//        birds.add(	"Lapasotka");
+//        birds.add(	"Laulujoutsen");
+//        birds.add(	"Lumihanhi");
+//        birds.add(	"Lyhytnokkahanhi");
+//        birds.add(	"Mandariinisorsa");
+//        birds.add(	"Merihanhi");
+//        birds.add(	"Metsähanhi");
+//        birds.add(	"Mustalintu");
+//        birds.add(	"Nokisorsa");
+//        birds.add(	"Pikkujoutsen");
+//        birds.add(	"Pikkukanadanhanhi");
+//        birds.add(	"Pikkulapasotka");
+//        birds.add(	"Pilkkaniska");
+//        birds.add(	"Pilkkasiipi");
+//        birds.add(	"Punakaulahanhi");
+//        birds.add(	"Punapäänarsku");
+//        birds.add(	"Punasotka");
+//        birds.add(	"Ristisorsa");
+//        birds.add(	"Ruostesorsa");
+//        birds.add(	"Ruskosotka");
+//        birds.add(	"Sepelhanhi");
+//        birds.add(	"Sinisiipitavi");
+//        birds.add(	"Sinisorsa");
+//        birds.add(	"Tavi");
+//        birds.add(	"Telkkä");
+//        birds.add(	"Tiibetinhanhi");
+//        birds.add(	"Tukkakoskelo");
+//        birds.add(	"Tukkasotka");
+//        birds.add(	"Tundrahanhi");
+//        birds.add(	"Uivelo");
+//        birds.add(	"Valkoposkihanhi");
+//        birds.add(	"Virta-alli");
+
+        
+//        createBird.setOnAction(e->{
+//            birdService.createBirdapp(newBirdInput.getText());
+////            birdService.createBirdapp(birds);
+//            newBirdInput.setText("");
+//            redrawBirdapp();
+//        });
         
         primaryStage.setTitle("Birds");
         primaryStage.setScene(loginScene);
