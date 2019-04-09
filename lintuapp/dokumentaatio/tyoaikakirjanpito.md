@@ -4,5 +4,7 @@
  26.3.2019 | 2 h    |  Käyttöliittymän toteuttamista
  31.3.2019 | 5 h    | Käyttöliittymän toteuttamista
  2.4.2019  | 2 h    | Käyttöliittymän toteuttamista ja testin luominen
- **Yhteensä** | **10,5 h** |
+ 7.4.2019  | 4 h    | Sovelluksen edistäminen
+ 9.4.2019  | 3 h    | Pakkauskaavion piirtäminen, Checkstylen käyttöönotto, Jacocon käyttöönotto, repositorion siistiminen
+ **Yhteensä** | **17,5 h** |
  -----------------------------------
