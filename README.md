@@ -15,3 +15,16 @@ Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa näkemistään lin
 ## Releaset
 
 [Sovellus](https://github.com/jennalack/ot-harjoitustyo/tree/master/lintuapp/Birdapp/src/main/java/birdapp)
+
+## Komentorivitoiminnot
+
+**Testaus**
+
+Testien suorittaminen komennolla: mvn test
+
+Testikattavuusraportin luominen komennolla: mvn jacoco:report
+
+**Suoritettavan jarin generointi**
+
+mvn package
+
