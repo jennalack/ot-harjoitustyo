@@ -16,6 +16,8 @@ Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa näkemistään lin
 
 [Sovellus](https://github.com/jennalack/ot-harjoitustyo/tree/master/lintuapp/Birdapp/src/main/java/birdapp)
 
+[Viikko 5](https://github.com/jennalack/ot-harjoitustyo/releases/tag/viikko5)
+
 ## Komentorivitoiminnot
 
 **Testaus**
