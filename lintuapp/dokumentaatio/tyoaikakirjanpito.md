@@ -9,5 +9,5 @@
  14.4.2019 | 3 h    | Sovelluksen edistäminen
  15.4.2019 | 3,5 h  | Sovelluksen edistäminen
  16.4.2019 | 3 h    | Checkstylen käyttöönoton uudelleen yrittäminen, sekvenssikaavion luominen, README:n muokkaaminen
- **Yhteensä** | **17,5 h** |
+ **Yhteensä** | **27 h** |
  -----------------------------------
