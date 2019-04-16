@@ -26,22 +26,22 @@ public class FileBirdappDao implements BirdappDao {
                 Birdapp birdapp = new Birdapp(id, parts[1], done, user);
                 birds.add(birdapp);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             FileWriter writer = new FileWriter(new File(file));
             writer.close();
         }
     }
     
-    private void save() throws Exception{
-        try (FileWriter writer = new FileWriter(new File(file))){
-            for(Birdapp bird : birds) {
+    private void save() throws Exception {
+        try (FileWriter writer = new FileWriter(new File(file))) {
+            for (Birdapp bird : birds) {
                 writer.write(bird.getId() + ";" + bird.getContent() + ";" + bird.isDone() + ";" + bird.getUser().getUsername() + "\n");
             }
         }
     }
     
     private int generateId() {
-        return birds.size() +1;
+        return birds.size() + 1;
     }
     
     @Override
@@ -52,7 +52,7 @@ public class FileBirdappDao implements BirdappDao {
     
     
     @Override
-    public Birdapp create(Birdapp birdapp) throws Exception{
+    public Birdapp create(Birdapp birdapp) throws Exception {
         birdapp.setId(generateId());
         birds.add(birdapp);
         save();
@@ -61,8 +61,8 @@ public class FileBirdappDao implements BirdappDao {
     
     @Override
     public void setDone(int id) throws Exception {
-        for(Birdapp b:birds) {
-            if(b.getId() == id) {
+        for (Birdapp b:birds) {
+            if (b.getId() == id) {
                 b.setDone();
             }
         }

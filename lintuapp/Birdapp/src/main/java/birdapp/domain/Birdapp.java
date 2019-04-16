@@ -12,21 +12,21 @@ public class Birdapp {
     private User user;
     
     public Birdapp(int id, String content, boolean done, User user) {
-        this.id=id;
-        this.content=content;
-        this.done=done;
-        this.user=user;
+        this.id = id;
+        this.content = content;
+        this.done = done;
+        this.user = user;
     }
     
     public Birdapp(String content, User user) {
-        this.content=content;
-        this.user=user;
-        this.done=false;
+        this.content = content;
+        this.user = user;
+        this.done = false;
     }
     
     
     public void setId(int id) {
-        this.id=id;
+        this.id = id;
     }
     
     public String getContent() {
@@ -46,12 +46,12 @@ public class Birdapp {
     }
     
     public void setDone() {
-        done=true;
+        done = true;
     }
     
     @Override
-    public boolean equals(Object obj){
-        if(!(obj instanceof Birdapp)) {
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Birdapp)) {
             return false;
         }
         Birdapp other = (Birdapp) obj;

@@ -13,8 +13,8 @@ public class BirdappService {
     private List<Birdapp> birds;
     
     public BirdappService(BirdappDao birdDao, UserDao userDao) {
-        this.birdDao=birdDao;
-        this.userDao=userDao;
+        this.birdDao = birdDao;
+        this.userDao = userDao;
         birds = new ArrayList<>();
         birds.add(new Birdapp("Alli", loggedIn));
         birds.add(new Birdapp("Allihaahka", loggedIn));
@@ -33,7 +33,7 @@ public class BirdappService {
     }
     
     public List<Birdapp> getUndone() {
-        if(loggedIn==null) {
+        if (loggedIn == null) {
             return new ArrayList<>();
 //            return birds;
         }
@@ -42,7 +42,7 @@ public class BirdappService {
     }
     
     public void markDone(int id) {
-        try{
+        try {
             birdDao.setDone(id);
         } catch (Exception ex) {
             
@@ -51,7 +51,7 @@ public class BirdappService {
     
     public boolean login(String username) {
         User user = userDao.findByUsername(username);
-        if(user == null) {
+        if (user == null) {
             return false;
         }
         loggedIn = user;
@@ -67,13 +67,13 @@ public class BirdappService {
     }
     
     public boolean createUser(String username, String name) {
-        if(userDao.findByUsername(username) != null) {
+        if (userDao.findByUsername(username) != null) {
             return false;
         }
         User user = new User(username, name);
-        try{
+        try {
             userDao.create(user);
-        } catch(Exception e) {
+        } catch (Exception e) {
             return false;
         }
         return true;
