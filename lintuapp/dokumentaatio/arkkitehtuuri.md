@@ -3,4 +3,4 @@
 
 
 ## Sekvenssikaavio uuden käyttäjän luomisesta
-![Sekvenssikaavio](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kuvat/Sekvenssikaavio.png)
+![Sekvenssikaavio](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kuvat/Sekvenssikaavio%20(1).png)
