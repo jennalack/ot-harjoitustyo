@@ -20,6 +20,8 @@ Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa näkemistään lin
 
 [Viikko 5](https://github.com/jennalack/ot-harjoitustyo/releases/tag/viikko5)
 
+[Viikko 6](https://github.com/jennalack/ot-harjoitustyo/releases/tag/viiko6)
+
 
 ## Komentorivitoiminnot
 
