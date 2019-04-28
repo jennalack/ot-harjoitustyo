@@ -10,8 +10,10 @@
  15.4.2019 | 3,5 h   | Sovelluksen edistäminen
  16.4.2019 | 3 h     | Checkstylen käyttöönoton uudelleen yrittäminen, sekvenssikaavion luominen, README:n muokkaaminen
  22.4.2019 | 4 h     | Koodikatselmointi: tutustuminen koodiin ja muistiinpanojen kirjoittaminen, tiedon etsiminen, miten saisin checkit tallennettua tietokantaan
- 23.4.2019  | 3h     | Koodikatselmointi: githubissa palautteen antaminen, käyttöohjeen ja arkkitehtuurikuvauksen kirjoittaminen
- 25.4.2019 | 3h     | Yritys saada tietokanta toimimaan sovelluksessa
- 26.4.2019 | 2h     | Yritys saada tietokanta toimimaan sovelluksessa ja releasen luominen
- **Yhteensä** | **39 h** |
+ 23.4.2019  | 3 h     | Koodikatselmointi: githubissa palautteen antaminen, käyttöohjeen ja arkkitehtuurikuvauksen kirjoittaminen
+ 25.4.2019 | 3 h     | Yritys saada tietokanta toimimaan sovelluksessa
+ 26.4.2019 | 2 h     | Yritys saada tietokanta toimimaan sovelluksessa ja releasen luominen
+ 27.4.2019 | 2 h    | Sovellus tallentaa listaan true/falsen sen mukaan, onko checkiä vai ei 
+ 28.4.2019 | 4 h    | Txt-filen käyttöönoton ja checkien tallentamisen yrittäminen
+ **Yhteensä** | **45 h** |
  -----------------------------------
