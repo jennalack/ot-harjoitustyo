@@ -1,6 +1,6 @@
 # LintuApp
 
-Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa näkemistään lintulajeista. Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä, joilla jokaisella on oma listansa lintuhavainnoistaan. Ensimmäisessä sovellusversiossa on vasta käyttöliittymä (kirjautuminen, käyttäjän luominen yms.), muttei mahdollisuutta vielä nähtyjen lintulajien merkitsemiseen. 
+Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa yhdessä näkemistään lintulajeista. Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä, joilla on yhteinen lista kaikista lintuhavainnoista. 
 
 
 ## [Dokumentaatio](https://github.com/jennalack/ot-harjoitustyo/tree/master/lintuapp/dokumentaatio)
@@ -8,6 +8,8 @@ Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa näkemistään lin
 [Arkkitehtuuri](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/arkkitehtuuri.md)
 
 [Käyttöohje](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kayttoohje.md)
+
+[Testausdokumentti]
 
 [Työaikakirjanpito](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/tyoaikakirjanpito.md)
 
@@ -22,6 +24,8 @@ Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa näkemistään lin
 
 [Viikko 6](https://github.com/jennalack/ot-harjoitustyo/releases/tag/viiko6)
 
+[Loppupalautus]()
+
 
 ## Komentorivitoiminnot
 
@@ -34,4 +38,12 @@ Testikattavuusraportin luominen komennolla: mvn jacoco:report
 **Suoritettavan jarin generointi**
 
 mvn package
+
+**JavaDocin generointi**
+
+mvn javadoc:javadoc
+
+**Checkstylen määrittelemät tarkistukset**
+
+mvn jxr:jxr checkstyle:checkstyle
 
