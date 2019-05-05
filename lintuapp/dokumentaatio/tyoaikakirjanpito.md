@@ -18,5 +18,5 @@
  2.5.2019  | 3 h    | Sovelluksen kehittäminen
  4.5.2019  | 6 h    | Sovelluksen kehittäminen
  5.5.2019  | xx h   | Testauksen edistäminen, dokumenttien luominen ja ajantasaistaminen
- **Yhteensä** | **45 h** |
+ **Yhteensä** | **54 h** |
  -----------------------------------
