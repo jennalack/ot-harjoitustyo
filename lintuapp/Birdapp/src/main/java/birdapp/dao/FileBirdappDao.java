@@ -44,27 +44,27 @@ public class FileBirdappDao implements BirdappDao {
             String[] parts = last.split(";");
             User user = users.getAll().stream().filter(u->u.getUsername().equals(parts[0])).findFirst().orElse(null); 
             String listFromFile = parts[1];
-            String replace = listFromFile.replace("[","");
-            String replace2 = replace.replace("]","");
+            String replace = listFromFile.replace("[", "");
+            String replace2 = replace.replace("]", "");
             String replace3 = replace2.replace(" ", "");
             List<String> tempList = new ArrayList<String>(Arrays.asList(replace3.split(",")));
-            for (int i=0; i<tempList.size(); i++) {
+            for (int i = 0; i < tempList.size(); i++) {
                 Boolean add = Boolean.parseBoolean(tempList.get(i));
                 fin.add(add);
             }
-                Birdapp birdapp = new Birdapp(fin, user);
+            Birdapp birdapp = new Birdapp(fin, user);
             birds.add(birdapp);
-        } catch(Exception e) {
+        } catch (Exception e) {
             FileWriter writer = new FileWriter(new File(file));
             writer.close();
         }
     }
     
    
-    private void save() throws Exception{
+    private void save() throws Exception {
         
-        try (FileWriter writer = new FileWriter(new File(file))){
-            for(Birdapp bird : birds) {
+        try (FileWriter writer = new FileWriter(new File(file))) {
+            for (Birdapp bird : birds) {
                 writer.write(bird.getUser().getUsername() + ";" + bird.getSelected() + "\n");
             }
         }
@@ -87,7 +87,7 @@ public class FileBirdappDao implements BirdappDao {
     
    
     @Override
-    public Birdapp create(Birdapp birdapp) throws Exception{
+    public Birdapp create(Birdapp birdapp) throws Exception {
         birds.add(birdapp);
         save();
         return birdapp;

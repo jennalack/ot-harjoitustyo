@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import birdapp.dao.BirdappDao;
 
-public class TestBirdappDao implements BirdappDao{
+public class TestBirdappDao implements BirdappDao {
+    
     ArrayList<Birdapp> checksAndUser;
     ArrayList<Boolean> checks;
 

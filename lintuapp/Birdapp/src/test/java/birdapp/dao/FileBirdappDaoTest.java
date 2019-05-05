@@ -1,5 +1,5 @@
-
 package birdapp.dao;
+
 
 import java.io.File;
 import java.io.FileWriter;
@@ -17,9 +17,10 @@ import birdapp.domain.User;
 import java.util.ArrayList;
 
 
+
 public class FileBirdappDaoTest {
     
-     @Rule
+         @Rule
     public TemporaryFolder tempFolder = new TemporaryFolder();    
   
     File userFile;  
@@ -35,33 +36,11 @@ public class FileBirdappDaoTest {
             file.write("test;[true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false]\n");
         }
         
-    }
-   
-    @Test
-    public void listAndUserAreReadCorrectlyFromFile() {
-        List<Birdapp> checksAndUser = dao.getAll();
-        assertEquals(1, checksAndUser.size());
-        Birdapp birdapp = checksAndUser.get(0);
-        assertEquals("[true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false]", birdapp.getSelected());
-        assertEquals("testertester", birdapp.getUser().getUsername());
-    }    
-    
-    @Test
-    public void createMethodSavesChecksCorrectly() throws Exception {    
-        ArrayList<Boolean> testSelected = new ArrayList<>();
-        for(int i = 0; i < 41; i++) {
-            testSelected.add(false);
-        }
-        dao.create(new Birdapp(testSelected, new User("test", "Ted Tester")));
-        
-        List<Birdapp> checksAndUser = dao.getAll();
-        assertEquals(2, checksAndUser.size());
-        Birdapp birdapp = checksAndUser.get(1);
-        assertEquals("test", birdapp.getUser().getUsername());
-    }     
+    } 
     
     @After
     public void tearDown() {
         userFile.delete();
     }
 }
+

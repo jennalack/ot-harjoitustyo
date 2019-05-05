@@ -27,8 +27,8 @@ public class BirdappService {
     public ArrayList<Boolean> returned = new ArrayList<>(); 
     
     public BirdappService(BirdappDao birdDao, UserDao userDao) {
-        this.birdDao=birdDao;
-        this.userDao=userDao;
+        this.birdDao = birdDao;
+        this.userDao = userDao;
     }
     
     /**
@@ -41,7 +41,7 @@ public class BirdappService {
     
     public boolean login(String username) {
         User user = userDao.findByUsername(username);
-        if(user == null) {
+        if (user == null) {
             return false;
         }
         loggedIn = user;
@@ -55,8 +55,8 @@ public class BirdappService {
     */ 
     
     public ArrayList<Boolean> getChecked() {
-       returned = birdDao.getListOfChecks();
-       return returned;
+        returned = birdDao.getListOfChecks();
+        return returned;
     }
     
     /**
@@ -87,13 +87,13 @@ public class BirdappService {
     */ 
     
     public boolean createUser(String username, String name) {
-        if(userDao.findByUsername(username) != null) {
+        if (userDao.findByUsername(username) != null) {
             return false;
         }
         User user = new User(username, name);
-        try{
+        try {
             userDao.create(user);
-        } catch(Exception e) {
+        } catch (Exception e) {
             return false;
         }
         return true;

@@ -14,7 +14,8 @@ import org.junit.rules.TemporaryFolder;
 import birdapp.domain.User;
 
 public class FileUserDaoTest {
-     @Rule
+    
+    @Rule
     public TemporaryFolder testFolder = new TemporaryFolder();
     
     File userFile;  

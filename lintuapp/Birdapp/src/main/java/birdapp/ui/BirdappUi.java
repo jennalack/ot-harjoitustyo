@@ -144,7 +144,7 @@ public class BirdappUi extends Application {
     
     
     @Override
-    public void init() throws Exception{
+    public void init() throws Exception {
         Properties properties = new Properties();
         properties.load(new FileInputStream("config.properties"));
         String userFile = properties.getProperty("userFile");
@@ -159,18 +159,18 @@ public class BirdappUi extends Application {
     
     public ArrayList<Boolean> checkIfChecked() {
         selected.clear();
-        for(CheckBox box : boxes) {
-                if(box.isSelected()) {
-                    selected.add(true);
-                } else {
-                    selected.add(false);
-                }
+        for (CheckBox box : boxes) {
+            if (box.isSelected()) {
+                selected.add(true);
+            } else {
+                selected.add(false);
             }
+        }
         return selected;
     }
      
     @Override
-    public void start(Stage primaryStage){
+    public void start(Stage primaryStage) {
         
         VBox loginPane = new VBox(10);
         HBox inputPane = new HBox(10);
@@ -183,28 +183,28 @@ public class BirdappUi extends Application {
         
         Button loginButton = new Button("Login");
         Button createButton = new Button("Create new user");
-        loginButton.setOnAction(e->{
+        loginButton.setOnAction(e-> {
             String username = usernameInput.getText();
-            if(!(selected.isEmpty())) {
-                int i=0;
-                for(Boolean select : selected) {
-                    if(select == true) {
+            if (!(selected.isEmpty())) {
+                int i = 0;
+                for (Boolean select : selected) {
+                    if (select == true) {
                         boxes.get(i).setSelected(true);
                     }
                     i++;
                 }
             } else {
                 returned = birdService.getChecked();
-                int i=0;
-                for(Boolean returned : returned) {
-                    if(returned == true) {
+                int i = 0;
+                for (Boolean returned : returned) {
+                    if (returned == true) {
                         boxes.get(i).setSelected(true);
                     }
                     i++;
                 }
             }
             menuLabel.setText(username + " logged in...");
-            if(birdService.login(username)){
+            if (birdService.login(username)) {
                 loginMessage.setText("");
                 primaryStage.setScene(birdScene);
                 usernameInput.setText("");
@@ -242,11 +242,11 @@ public class BirdappUi extends Application {
         
         Button createNewUserButton = new Button("Create");
         createNewUserButton.setPadding(new Insets(10));
-        createNewUserButton.setOnAction(e->{
-            String username=newUsernameInput.getText();
+        createNewUserButton.setOnAction(e-> {
+            String username = newUsernameInput.getText();
             String name = newNameInput.getText();
             
-            if(username.length() < 5 || name.length() < 2) {
+            if (username.length() < 5 || name.length() < 2) {
                 userCreationMessage.setText("Username or name too short!");
                 userCreationMessage.setTextFill(Color.RED);
             } else if (birdService.createUser(username, name)) {
@@ -261,18 +261,18 @@ public class BirdappUi extends Application {
         });
         
         newUserPane.getChildren().addAll(userCreationMessage, newUsernamePane, newNamePane, createNewUserButton);
-        newUserScene = new Scene(newUserPane,300,250);
+        newUserScene = new Scene(newUserPane, 300, 250);
         
         ScrollPane birdScrollbar = new ScrollPane();
         BorderPane mainPane = new BorderPane(birdScrollbar);
-        birdScene = new Scene(mainPane,300,250);
+        birdScene = new Scene(mainPane, 300, 250);
         
         HBox menuPane = new HBox(10);
         Region menuSpacer = new Region();
         HBox.setHgrow(menuSpacer, Priority.ALWAYS);
         Button logoutButton = new Button("logout");
         menuPane.getChildren().addAll(menuLabel, menuSpacer, logoutButton);
-        logoutButton.setOnAction(e->{
+        logoutButton.setOnAction(e-> {
             checkIfChecked();
             birdService.saveChecks(selected);
             birdService.logout();
@@ -304,14 +304,14 @@ public class BirdappUi extends Application {
         primaryStage.setOnCloseRequest(e-> {
             System.out.println("Closing");
             System.out.println(birdService.getLoggedUser());
-            if(birdService.getLoggedUser()!=null){
+            if (birdService.getLoggedUser() != null) {
                 e.consume();
             }
         });
     }
     
     @Override
-    public void stop(){
+    public void stop() {
         System.out.println("Application closes");
     }
     

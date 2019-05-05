@@ -30,8 +30,8 @@ public class Birdapp {
     }
     
     @Override
-    public boolean equals(Object obj){
-        if(!(obj instanceof Birdapp)) {
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Birdapp)) {
             return false;
         }
         Birdapp other = (Birdapp) obj;
