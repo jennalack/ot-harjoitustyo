@@ -24,7 +24,7 @@ Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa yhdessä näkemist
 
 [Viikko 6](https://github.com/jennalack/ot-harjoitustyo/releases/tag/viiko6)
 
-[Loppupalautus]()
+[Loppupalautus](https://github.com/jennalack/ot-harjoitustyo/releases/tag/Loppupalautus)
 
 
 ## Komentorivitoiminnot
