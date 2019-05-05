@@ -15,5 +15,8 @@
  26.4.2019 | 2 h     | Yritys saada tietokanta toimimaan sovelluksessa ja releasen luominen
  27.4.2019 | 2 h    | Sovellus tallentaa listaan true/falsen sen mukaan, onko checkiä vai ei 
  28.4.2019 | 4 h    | Txt-filen käyttöönoton ja checkien tallentamisen yrittäminen
+ 2.5.2019  | 3 h    | Sovelluksen kehittäminen
+ 4.5.2019  | 6 h    | Sovelluksen kehittäminen
+ 5.5.2019  | xx h   | Testauksen edistäminen, dokumenttien luominen ja ajantasaistaminen
  **Yhteensä** | **45 h** |
  -----------------------------------
