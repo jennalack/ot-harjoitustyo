@@ -74,6 +74,10 @@ Alla on kuvattuna muutama sovelluksen päätoiminnallisuuksista sekvenssikaavioi
 
 ![Sisaankirjautuminen_kaavio](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kuvat/sisaankirjautuminen.png)
 
+#### Lintujen tallentaminen listaan
+
+![lintujentallentaminen_kaavio](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kuvat/lintujen_tallentaminen.png)
+
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
 - BirdappUi-luokassa voisi eriyttää toiminnallisuuksia omiksi metodeikseen.
