@@ -1,6 +1,9 @@
 
 package birdapp.domain;
 
+/**
+ * Järjestelmän käyttäjää edustava luokka 
+ */
 
 public class User {
     private String name;
@@ -21,7 +24,7 @@ public class User {
     
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof User)) {
+        if(!(obj instanceof User)) {
             return false;
         }
         User other = (User) obj;

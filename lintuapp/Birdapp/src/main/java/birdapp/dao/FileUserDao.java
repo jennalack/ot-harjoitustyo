@@ -16,7 +16,7 @@ public class FileUserDao implements UserDao {
         this.file = file;
         try {
             Scanner reader = new Scanner(new File(file));
-            while (reader.hasNextLine()) {
+            while(reader.hasNextLine()) {
                 String[] parts =  reader.nextLine().split(";");
                 User u = new User(parts[0], parts[1]);
                 users.add(u);
@@ -27,9 +27,9 @@ public class FileUserDao implements UserDao {
         }
     }
 
-    private void save() throws Exception {
-        try (FileWriter writer = new FileWriter(new File(file))) {
-            for (User user:users) {
+    private void save() throws Exception{
+        try (FileWriter writer = new FileWriter(new File(file))){
+            for(User user:users) {
                 writer.write(user.getUsername() + ";" + user.getName() + "\n");
             }
         }

@@ -41,216 +41,106 @@ import javafx.util.Callback;
 
 public class BirdappUi extends Application {
     
-    
-
-//    private BirdappService birdService;
-//    
-//    private Scene birdScene;
-//    private Scene newUserScene;
-//    private Scene loginScene;
-//    
-//    private VBox birdNodes;
-//    private Label menuLabel = new Label();
-//    
-//    @Override
-//    public void init() throws Exception {
-//        Properties properties = new Properties();
-//
-//        properties.load(new FileInputStream("config.properties"));
-//        
-//        String userFile = properties.getProperty("userFile");
-//        String birdFile = properties.getProperty("birdFile");
-//            
-//        FileUserDao userDao = new FileUserDao(userFile);
-//        FileBirdappDao birdDao = new FileBirdappDao(birdFile, userDao);
-//        birdService = new BirdappService(birdDao, userDao);
-//    }
-//    
-//    public Node createTodoNode(Birdapp birdapp) {
-//        HBox box = new HBox(10);
-//        Label label  = new Label(birdapp.getContent());
-//        label.setMinHeight(28);
-//        Button button = new Button("done");
-//        button.setOnAction(e->{
-//            birdService.markDone(birdapp.getId());
-//            redrawBirdlist();
-//        });
-//                
-//        Region spacer = new Region();
-//        HBox.setHgrow(spacer, Priority.ALWAYS);
-//        box.setPadding(new Insets(0,5,0,5));
-//        
-//        box.getChildren().addAll(label, spacer, button);
-//        return box;
-//    }
-//    
-//    public void redrawBirdlist() {
-//        birdNodes.getChildren().clear();     
-//
-//        List<Birdapp> undoneTodos = birdService.getUndone();
-//        undoneTodos.forEach(bird->{
-//            birdNodes.getChildren().add(createTodoNode(bird));
-//        });     
-//    }
-//    
-//    @Override
-//    public void start(Stage primaryStage) {               
-//        // login scene
-//        
-//        VBox loginPane = new VBox(10);
-//        HBox inputPane = new HBox(10);
-//        loginPane.setPadding(new Insets(10));
-//        Label loginLabel = new Label("username");
-//        TextField usernameInput = new TextField();
-//        
-//        inputPane.getChildren().addAll(loginLabel, usernameInput);
-//        Label loginMessage = new Label();
-//        
-//        Button loginButton = new Button("login");
-//        Button createButton = new Button("create new user");
-//        loginButton.setOnAction(e->{
-//            String username = usernameInput.getText();
-//            menuLabel.setText(username + " logged in...");
-//            if ( birdService.login(username) ){
-//                loginMessage.setText("");
-//                redrawBirdlist();
-//                primaryStage.setScene(birdScene);  
-//                usernameInput.setText("");
-//            } else {
-//                loginMessage.setText("use does not exist");
-//                loginMessage.setTextFill(Color.RED);
-//            }      
-//        });  
-//        
-//        createButton.setOnAction(e->{
-//            usernameInput.setText("");
-//            primaryStage.setScene(newUserScene);   
-//        });  
-//        
-//        loginPane.getChildren().addAll(loginMessage, inputPane, loginButton, createButton);       
-//        
-//        loginScene = new Scene(loginPane, 300, 250);    
-//   
-//        // new createNewUserScene
-//        
-//        VBox newUserPane = new VBox(10);
-//        
-//        HBox newUsernamePane = new HBox(10);
-//        newUsernamePane.setPadding(new Insets(10));
-//        TextField newUsernameInput = new TextField(); 
-//        Label newUsernameLabel = new Label("username");
-//        newUsernameLabel.setPrefWidth(100);
-//        newUsernamePane.getChildren().addAll(newUsernameLabel, newUsernameInput);
-//     
-//        HBox newNamePane = new HBox(10);
-//        newNamePane.setPadding(new Insets(10));
-//        TextField newNameInput = new TextField();
-//        Label newNameLabel = new Label("name");
-//        newNameLabel.setPrefWidth(100);
-//        newNamePane.getChildren().addAll(newNameLabel, newNameInput);        
-//        
-//        Label userCreationMessage = new Label();
-//        
-//        Button createNewUserButton = new Button("create");
-//        createNewUserButton.setPadding(new Insets(10));
-//
-//        createNewUserButton.setOnAction(e->{
-//            String username = newUsernameInput.getText();
-//            String name = newNameInput.getText();
-//   
-//            if ( username.length()==2 || name.length()<2 ) {
-//                userCreationMessage.setText("username or name too short");
-//                userCreationMessage.setTextFill(Color.RED);              
-//            } else if ( birdService.createUser(username, name) ){
-//                userCreationMessage.setText("");                
-//                loginMessage.setText("new user created");
-//                loginMessage.setTextFill(Color.GREEN);
-//                primaryStage.setScene(loginScene);      
-//            } else {
-//                userCreationMessage.setText("username has to be unique");
-//                userCreationMessage.setTextFill(Color.RED);        
-//            }
-// 
-//        });  
-//        
-//        newUserPane.getChildren().addAll(userCreationMessage, newUsernamePane, newNamePane, createNewUserButton); 
-//       
-//        newUserScene = new Scene(newUserPane, 300, 250);
-//        
-//        // main scene
-//        
-//        ScrollPane todoScollbar = new ScrollPane();       
-//        BorderPane mainPane = new BorderPane(todoScollbar);
-//        birdScene = new Scene(mainPane, 300, 250);
-//                
-//        HBox menuPane = new HBox(10);    
-//        Region menuSpacer = new Region();
-//        HBox.setHgrow(menuSpacer, Priority.ALWAYS);
-//        Button logoutButton = new Button("logout");      
-//        menuPane.getChildren().addAll(menuLabel, menuSpacer, logoutButton);
-//        logoutButton.setOnAction(e->{
-//            birdService.logout();
-//            primaryStage.setScene(loginScene);
-//        });        
-//        
-//        HBox createForm = new HBox(10);    
-//        Button createTodo = new Button("create");
-//        Region spacer = new Region();
-//        HBox.setHgrow(spacer, Priority.ALWAYS);
-//        TextField newTodoInput = new TextField();
-//        createForm.getChildren().addAll(newTodoInput, spacer, createTodo);
-//        
-//        birdNodes = new VBox(10);
-//        birdNodes.setMaxWidth(280);
-//        birdNodes.setMinWidth(280);
-//        redrawBirdlist();
-//        
-//        todoScollbar.setContent(birdNodes);
-//        mainPane.setBottom(createForm);
-//        mainPane.setTop(menuPane);
-//        
-//        createTodo.setOnAction(e->{
-//            birdService.createBirdapp(newTodoInput.getText());
-//            newTodoInput.setText("");       
-//            redrawBirdlist();
-//        });
-//        
-//        // seutp primary stage
-//        
-//        primaryStage.setTitle("Todos");
-//        primaryStage.setScene(loginScene);
-//        primaryStage.show();
-//        primaryStage.setOnCloseRequest(e->{
-//            System.out.println("closing");
-//            System.out.println(birdService.getLoggedUser());
-//            if (birdService.getLoggedUser()!=null) {
-//                e.consume();   
-//            }
-//            
-//        });
-//    }
-//
-//    @Override
-//    public void stop() {
-//      // tee lopetustoimenpiteet täällä
-//      System.out.println("sovellus sulkeutuu");
-//    }    
-//    
-//    public static void main(String[] args) {
-//        launch(args);
-//    }
-//    
-//    
-//}
-    
     private BirdappService birdService;
-    
     private Scene birdScene;
     private Scene newUserScene;
     private Scene loginScene;
     
     private VBox birdnodes;
     private Label menuLabel = new Label();
+    private ArrayList<CheckBox> boxes = new ArrayList<>();
+    
+    /**
+    * Lista checboxien totuusarvojen tallentamiseen
+    */
+    public ArrayList<Boolean> selected = new ArrayList<>();
+    
+    /**
+    * Lista, johon palautetaan tekstitiedostosta totuusarvot
+    */
+    public ArrayList<Boolean> returned = new ArrayList<>();
+    
+    public BirdappUi() {
+        CheckBox box1 = new CheckBox("Kyhmyjoutsen");
+        CheckBox box2 = new CheckBox("Pikkujoutsen");
+        CheckBox box3 = new CheckBox("Laulujoutsen");
+        CheckBox box4 = new CheckBox("Metsähanhi");
+        CheckBox box5 = new CheckBox("Lyhytnokkahanhi");
+        CheckBox box6 = new CheckBox("Tundrahanhi");
+        CheckBox box7 = new CheckBox("Kiljuhanhi");
+        CheckBox box8 = new CheckBox("Merihanhi");
+        CheckBox box9 = new CheckBox("Lumihanhi");
+        CheckBox box10 = new CheckBox("Tiibetinhanhi");
+        CheckBox box12 = new CheckBox("Kanadanhanhi");
+        CheckBox box13 = new CheckBox("Valkoposkihanhi");
+        CheckBox box14 = new CheckBox("Sepelhanhi");
+        CheckBox box15 = new CheckBox("Punakaulahanhi");
+        CheckBox box16 = new CheckBox("Pikkukanadanhanhi");
+        CheckBox box17 = new CheckBox("Ruostesorsa");
+        CheckBox box18 = new CheckBox("Ristisorsa");
+        CheckBox box19 = new CheckBox("Mandariinisorsa");
+        CheckBox box20 = new CheckBox("Haapana");
+        CheckBox box21 = new CheckBox("Pyy");
+        CheckBox box22 = new CheckBox("Riekko");
+        CheckBox box23 = new CheckBox("Kiiruna");
+        CheckBox box24 = new CheckBox("Teeri");
+        CheckBox box25 = new CheckBox("Metso");
+        CheckBox box26 = new CheckBox("Peltopyy");
+        CheckBox box27 = new CheckBox("Viiriäinen");
+        CheckBox box28 = new CheckBox("Fasaani");
+        CheckBox box29 = new CheckBox("Kaakkuri");
+        CheckBox box30 = new CheckBox("Kuikka");
+        CheckBox box31 = new CheckBox("Tundrakuikka");
+        CheckBox box32 = new CheckBox("Amerikanjääkuikka");
+        CheckBox box33 = new CheckBox("Jääkuikka");
+        CheckBox box34 = new CheckBox("Pikku-uikku");
+        CheckBox box35 = new CheckBox("Silkkiuikku");
+        CheckBox box36 = new CheckBox("Härkälintu");
+        CheckBox box37 = new CheckBox("Mustakurkku-uikku");
+        CheckBox box38 = new CheckBox("Mustakaulauikku");
+        CheckBox box39 = new CheckBox("Myrskylintu");
+        CheckBox box40 = new CheckBox("Nokiliitäjä");
+        
+        boxes.add(box1);
+        boxes.add(box2);
+        boxes.add(box3);
+        boxes.add(box4);
+        boxes.add(box5);
+        boxes.add(box6);
+        boxes.add(box7);
+        boxes.add(box8);
+        boxes.add(box9);
+        boxes.add(box10);
+        boxes.add(box12);
+        boxes.add(box13);
+        boxes.add(box14);
+        boxes.add(box15);
+        boxes.add(box16);
+        boxes.add(box17);
+        boxes.add(box18);
+        boxes.add(box19);
+        boxes.add(box20);
+        boxes.add(box21);
+        boxes.add(box22);
+        boxes.add(box23);
+        boxes.add(box24);
+        boxes.add(box25);
+        boxes.add(box26);
+        boxes.add(box27);
+        boxes.add(box28);
+        boxes.add(box29);
+        boxes.add(box30);
+        boxes.add(box31);
+        boxes.add(box32);
+        boxes.add(box33);
+        boxes.add(box34);
+        boxes.add(box35);
+        boxes.add(box36);
+        boxes.add(box37);
+        boxes.add(box38);
+        boxes.add(box39);
+        boxes.add(box40);
+    }
     
     
     @Override
@@ -264,46 +154,24 @@ public class BirdappUi extends Application {
         FileBirdappDao birdDao = new FileBirdappDao(birdFile, userDao);
         birdService = new BirdappService(birdDao, userDao);
     }
-//    
-    public Node createBirdNode(Birdapp birdapp){
-        CheckBox cb = new CheckBox();
-        HBox box = new HBox(cb);
-        Label label = new Label(birdapp.getContent());
-        label.setMinHeight(28);
-        
-//        ObservableList<String> birds = FXCollections.observableArrayList(
-//          "Alli", "Haapana", "Haahka");
-//        ListView<String> lv = new ListView<>(birds);
-//        lv.setCellFactory(CheckBoxListCell.forListView(item -> i));
-//        VBox.setVgrow(lv, Priority.ALWAYS);
-//
-//        box.getChildren().addAll(cb, label, lv);
-//        showTwitterListSelection();
-        
-        Button button = new Button("Seen");
-        button.setOnAction(e->{birdService.markDone(birdapp.getId());
-        redrawBirdapp();
-        });
-        
-        Region spacer = new Region();
-        HBox.setHgrow(spacer, Priority.ALWAYS);
-        box.setPadding(new Insets(0,5,0,5));
-        
-        box.getChildren().addAll(label, spacer, button);
-        return box;
-    }
+
+
     
-    public void redrawBirdapp() {
-        birdnodes.getChildren().clear();
-        
-        List<Birdapp> unseenBirds = birdService.getUndone();
-        unseenBirds.forEach(bird ->{birdnodes.getChildren().add(createBirdNode(bird));
-        });
-        
+    public ArrayList<Boolean> checkIfChecked() {
+        selected.clear();
+        for(CheckBox box : boxes) {
+                if(box.isSelected()) {
+                    selected.add(true);
+                } else {
+                    selected.add(false);
+                }
+            }
+        return selected;
     }
-    
+     
     @Override
     public void start(Stage primaryStage){
+        
         VBox loginPane = new VBox(10);
         HBox inputPane = new HBox(10);
         loginPane.setPadding(new Insets(10));
@@ -317,14 +185,31 @@ public class BirdappUi extends Application {
         Button createButton = new Button("Create new user");
         loginButton.setOnAction(e->{
             String username = usernameInput.getText();
+            if(!(selected.isEmpty())) {
+                int i=0;
+                for(Boolean select : selected) {
+                    if(select == true) {
+                        boxes.get(i).setSelected(true);
+                    }
+                    i++;
+                }
+            } else {
+                returned = birdService.getChecked();
+                int i=0;
+                for(Boolean returned : returned) {
+                    if(returned == true) {
+                        boxes.get(i).setSelected(true);
+                    }
+                    i++;
+                }
+            }
             menuLabel.setText(username + " logged in...");
             if(birdService.login(username)){
                 loginMessage.setText("");
-                redrawBirdapp();
                 primaryStage.setScene(birdScene);
                 usernameInput.setText("");
             } else {
-                loginMessage.setText("user does not exist");
+                loginMessage.setText("User does not exist");
                 loginMessage.setTextFill(Color.RED);
             }
         });
@@ -361,16 +246,16 @@ public class BirdappUi extends Application {
             String username=newUsernameInput.getText();
             String name = newNameInput.getText();
             
-            if(username.length()==2 || name.length()<2) {
+            if(username.length() < 5 || name.length() < 2) {
                 userCreationMessage.setText("Username or name too short!");
                 userCreationMessage.setTextFill(Color.RED);
             } else if (birdService.createUser(username, name)) {
                 userCreationMessage.setText("");
-                loginMessage.setText("New user created!");
+                loginMessage.setText("New user created successfully!");
                 loginMessage.setTextFill(Color.CORAL);
                 primaryStage.setScene(loginScene);
             } else {
-                userCreationMessage.setText("username has to be unique");
+                userCreationMessage.setText("Username is already in use");
                 userCreationMessage.setTextFill(Color.RED);
             }
         });
@@ -388,6 +273,8 @@ public class BirdappUi extends Application {
         Button logoutButton = new Button("logout");
         menuPane.getChildren().addAll(menuLabel, menuSpacer, logoutButton);
         logoutButton.setOnAction(e->{
+            checkIfChecked();
+            birdService.saveChecks(selected);
             birdService.logout();
             primaryStage.setScene(loginScene);
         });
@@ -400,124 +287,22 @@ public class BirdappUi extends Application {
         createForm.getChildren().addAll(newBirdInput, spacer, createBird);
         
         birdnodes = new VBox();
-//        birdnodes.setMaxWidth(280);
-//        birdnodes.setMinWidth(280);
-        redrawBirdapp();
-//        ObservableList<String> birds = FXCollections.<String>observableArrayList("Alli", "Haahka", "Haapana", "Kuovi");
-//        ListView<String> birdsview = new ListView<>(birds);
-//        birdsview.setOrientation(Orientation.VERTICAL);
-//        
-//         ListView<String> checklist = new ListView<>(birds);
-        CheckBox box1 = new CheckBox("Kyhmyjoutsen");
-        CheckBox box2 = new CheckBox("Pikkujoutsen");
-        CheckBox box3 = new CheckBox("Laulujoutsen");
-        CheckBox box4 = new CheckBox("Metsähanhi");
-        CheckBox box5 = new CheckBox("Lyhytnokkahanhi");
-        CheckBox box6 = new CheckBox("Tundrahanhi");
-        CheckBox box7 = new CheckBox("Kiljuhanhi");
-        CheckBox box8 = new CheckBox("Merihanhi");
-        CheckBox box9 = new CheckBox("Lumihanhi");
-        CheckBox box10 = new CheckBox("Tiibetinhanhi");
-        CheckBox box12 = new CheckBox("Kanadanhanhi");
-        CheckBox box13 = new CheckBox("Valkoposkihanhi");
-        CheckBox box14 = new CheckBox("Sepelhanhi");
-        CheckBox box15 = new CheckBox("Punakaulahanhi");
-        CheckBox box16 = new CheckBox("Pikkukanadanhanhi");
-        CheckBox box17 = new CheckBox("Ruostesorsa");
-        CheckBox box18 = new CheckBox("Ristisorsa");
-        CheckBox box19 = new CheckBox("Mandariinisorsa");
-        CheckBox box20 = new CheckBox("Haapana");
+        birdnodes.setMaxWidth(280);
+        birdnodes.setMinWidth(280);
         
-        
-        
-//    ListView<String> birdView = new ListView<>();
-//        String[] birds = {"Kyhmyjoutsen","Pikkujoutsen","Laulujoutsen","Metsähanhi", "Lyhytnokkahanhi","Tundrahanhi","Kiljuhanhi","Merihanhi","Lumihanhi","Tiibetinhanhi","Kanadanhanhi","Valkoposkihanhi","Sepelhanhi","Punakaulahanhi","Pikkukanadanhanhi","Ruostesorsa","Ristisorsa","Mandariinisorsa","Haapana","Amerikanhaapana","Harmaasorsa","Tavi","Amerikantavi","Sinisorsa","Nokisorsa","Jouhisorsa","Heinätavi","Sinisiipitavi","Lapasorsa","Punapäänarsku","Punasotka","Amerikantukkasotka","Ruskosotka","Tukkasotka","Lapasotka","Pikkulapasotka","Haahka","Kyhmyhaahka","Allihaahka","Virta-alli","Alli","Mustalintu","Amerikanmustalintu","Pilkkaniska","Pilkkasiipi","Kyhmypilkkasiipi","Telkkä","Uivelo","Tukkakoskelo","Isokoskelo","Kuparisorsa"};
-//        birdView.getItems().addAll(birds);
-//        birdView.setCellFactory(CheckBoxListCell.forListView(new Callback<String, ObservableValue<Boolean>>() {
-//            @Override
-//            public ObservableValue<Boolean> call(String item) {
-//            BooleanProperty observable = new SimpleBooleanProperty();
-//            observable.addListener((obs, wasSelected, isNowSelected)
-//                -> System.out.println("Check box for " + item + " changed from " + wasSelected + " to " + isNowSelected)
-//            );
-//            return observable;
-//            }
-//    }));
-    
+       
         VBox birdSelection = new VBox();
         birdSelection.setSpacing(10);
-        birdSelection.getChildren().addAll(box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box12, box13, box14, box15, box16, box17, box18, box19, box20);
+        birdSelection.getChildren().addAll(boxes); 
  
         birdScrollbar.setContent(birdSelection);
-//        mainPane.setBottom(createForm);
         mainPane.setTop(menuPane);
         
-//        ArrayList<String> birds = new ArrayList<>();
-//         birds.add("Alli");
-//        birds.add("Allihaahka");
-//        birds.add("Amerikanhaapana");
-//        birds.add("Amerikanmustalintu");
-//        birds.add(	"Amerikantavi");
-//        birds.add(	"Amerikantukkasotka");
-//        birds.add(	"Haahka");
-//        birds.add(	"Haapana");
-//        birds.add(	"Harmaasorsa");
-//        birds.add(	"Heinätavi");
-//        birds.add(	"Isokoskelo");
-//        birds.add(	"Jouhisorsa");
-//        birds.add(	"Kanadanhanhi");
-//        birds.add(	"Kiljuhanhi");
-//        birds.add(	"Kuparisorsa");
-//        birds.add(	"Kyhmyhaahka");
-//        birds.add(	"Kyhmyjoutsen");
-//        birds.add(	"Kyhmypilkkasiipi");
-//        birds.add(	"Lapasorsa");
-//        birds.add(	"Lapasotka");
-//        birds.add(	"Laulujoutsen");
-//        birds.add(	"Lumihanhi");
-//        birds.add(	"Lyhytnokkahanhi");
-//        birds.add(	"Mandariinisorsa");
-//        birds.add(	"Merihanhi");
-//        birds.add(	"Metsähanhi");
-//        birds.add(	"Mustalintu");
-//        birds.add(	"Nokisorsa");
-//        birds.add(	"Pikkujoutsen");
-//        birds.add(	"Pikkukanadanhanhi");
-//        birds.add(	"Pikkulapasotka");
-//        birds.add(	"Pilkkaniska");
-//        birds.add(	"Pilkkasiipi");
-//        birds.add(	"Punakaulahanhi");
-//        birds.add(	"Punapäänarsku");
-//        birds.add(	"Punasotka");
-//        birds.add(	"Ristisorsa");
-//        birds.add(	"Ruostesorsa");
-//        birds.add(	"Ruskosotka");
-//        birds.add(	"Sepelhanhi");
-//        birds.add(	"Sinisiipitavi");
-//        birds.add(	"Sinisorsa");
-//        birds.add(	"Tavi");
-//        birds.add(	"Telkkä");
-//        birds.add(	"Tiibetinhanhi");
-//        birds.add(	"Tukkakoskelo");
-//        birds.add(	"Tukkasotka");
-//        birds.add(	"Tundrahanhi");
-//        birds.add(	"Uivelo");
-//        birds.add(	"Valkoposkihanhi");
-//        birds.add(	"Virta-alli");
-
-        
-//        createBird.setOnAction(e->{
-//            birdService.createBirdapp(newBirdInput.getText());
-////            birdService.createBirdapp(birds);
-//            newBirdInput.setText("");
-//            redrawBirdapp();
-//        });
-        
-        primaryStage.setTitle("Birds");
+        primaryStage.setTitle("Bird observations");
         primaryStage.setScene(loginScene);
         primaryStage.show();
         primaryStage.setOnCloseRequest(e-> {
-            System.out.println("closing");
+            System.out.println("Closing");
             System.out.println(birdService.getLoggedUser());
             if(birdService.getLoggedUser()!=null){
                 e.consume();
@@ -527,7 +312,7 @@ public class BirdappUi extends Application {
     
     @Override
     public void stop(){
-        System.out.println("Sovellus sulkeutuu");
+        System.out.println("Application closes");
     }
     
     public static void main(String[] args) {
@@ -536,71 +321,4 @@ public class BirdappUi extends Application {
 }
 
     
-    
-    //Oma tekemä, Käytä tätä kun toimii!
-//    @Override
-//    public void start(Stage window) {
-//   
-//        TextField logintext = new TextField();
-//        TextField newuser = new TextField();
-//        Label user = new Label("Username: ");
-//        Label newusertext = new Label("Write your username: ");
-//        BorderPane lay = new BorderPane();
-//        Button button = new Button("Login");
-//        Button create = new Button("Create new user");
-//        
-//        GridPane componentgroup2 = new GridPane();
-//        componentgroup2.add(newusertext, 0, 0);
-//        componentgroup2.add(newuser, 1, 0);
-//        componentgroup2.add(create, 1, 1);
-//        
-//        GridPane componentgroup = new GridPane();
-//        componentgroup.add(user, 0, 0);
-//        componentgroup.add(logintext, 1, 0);
-//        componentgroup.add(button, 1, 2);
-//        componentgroup.add(create, 1, 3);
-//        
-//        componentgroup.setHgap(10);
-//        componentgroup.setVgap(10);
-//        componentgroup.setPadding(new Insets(10, 10, 10, 10));
-//        
-//        Button test = new Button("Test");
-//        
-//        Scene view = new Scene(componentgroup);
-//        Scene birds = new Scene(test);
-//        
-//        button.setOnAction((event) -> {
-//            window.setScene(birds);
-//        });
-//        
-//        create.setOnAction((event) -> {
-//            window.setScene(new Scene(componentgroup2));
-//        });
-        
-        
-    
-    //TÄMÄ HARJOITTELUA; EI TÄTÄ LOPULLISEEN!
-//        VBox componentgroup = new VBox();
-//        componentgroup.setSpacing(100);
-//        componentgroup.getChildren().addAll(logintext, button);
-        
-     
-//        lay.setCenter(button);
-//        lay.setTop(logintext);
-        
-//        button.setOnAction((event) -> {
-//            System.out.println("Pushed!");
-//        });
-//        
-       
-        //NÄMÄ LOPULLISEEN!
-//        window.setTitle("Login");
-//        window.setScene(view);
-//        window.show();
-//    }
-//    
-//    public static void main(String[] args) {
-//        launch(BirdappUi.class);
-//    }
-    
-//}
+  
