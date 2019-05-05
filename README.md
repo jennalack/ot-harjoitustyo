@@ -9,7 +9,7 @@ Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa yhdessä näkemist
 
 [Käyttöohje](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kayttoohje.md)
 
-[Testausdokumentti]
+[Testausdokumentti](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/testausdokumentti.md)
 
 [Työaikakirjanpito](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/tyoaikakirjanpito.md)
 
