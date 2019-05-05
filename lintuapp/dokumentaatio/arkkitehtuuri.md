@@ -78,14 +78,14 @@ Uuden käyttäjän luominen alkaa kun käyttäjä klikkaa "Create new user" -pai
 
 Sisäänkirjautumisessa käyttäjä syöttää käyttäjänimensä sille tarkoitettuun tekstikenttään ja painaa login-painiketta. Tällöin kutsutaan birdServicen metodia "login", jolle annetaan parametriksi käyttäjätunnus. UserDao:n avulla selvitetään, onko kyseinen käyttäjätunnus olemassa. Jos on, niin näkymäksi vaihtuu näkymäksi birdScene eli näkymä, jossa on lista lintulajeista sekä vieressä checkboxit. Alla tapahtuma on havainnollistettu kuvassa. 
 
-![Sisaankirjautuminen_kaavio](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kuvat/sisaankirjautuminen.png)
+![Sisaankirjautuminen_kaavio](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kuvat/sisaankirjautuminen2.png)
 
 
 #### Lintujen tallentaminen listaan
 
 Lintujen tallentaminen listaan alkaa kun käyttäjä painaa logout-näppäintä. Tällöin käyttöliittymä käy läpi kaikki checkboxit ja luo boolean-tyyppisen listan, johon se tallentaa arvon true, jos lintu on havaittu ja muuten false. Lista viedään luokkaan birdService metodin saveChecks avulla, jolle siis parametrina on annettu kyseinen lista. Sovellus luo uuden Birdapp-olion ja luokan birdDao metodia "create" kutsutaan, jotta se tallentaa tiedot tekstitiedostoon ja sille annetaan parametriksi kyseinen Birdapp-olio. Lopuksi palataan takaisin kirjautumisnäkymään. Alla on kuva tapahtumasta.
 
-![lintujentallentaminen_kaavio](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kuvat/lintujen_tallentaminen.png)
+![lintujentallentaminen_kaavio](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kuvat/lintujen_tallentaminen2.png)
 
 
 #### Lintujen palauttaminen listasta
