@@ -1,4 +1,4 @@
-# Vaatimus Määrittely
+# Vaatimusmäärittely
 
 ## Sovelluksen tarkoitus
 
