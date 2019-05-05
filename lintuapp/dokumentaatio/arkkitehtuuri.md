@@ -12,45 +12,59 @@ birdapp.ui-pakkaus sisältää graafisen käyttöliittymän, joka on toteutettu 
 
 ## Käyttöliittymä
 
-Avatessaan sovelluksen käyttäjä näkee ensimmäisenä sisäänkirjautumisikkunan, jolla käyttäjä voi joko kirjautua sisään tai luoda uuden käyttäjän. Sisäänkirjautumis- sekä uuden käyttäjän luomisikkuna toimivat jo hyvin, mutta itse sovelluslogiikassa on vielä paljon kehitettävää. Kaikki ikkunat on toteutettu omana Scene-oliona. Näkymistä yksi kerrallaan on näkyvänä eli sijoitettuna sovelluksen stageen. Käyttöliittymä on rakennettu ohjelmallisesti luokassa birdapp.ui.BirdappUi.
+Käyttöliittymään kuuluu kolme näkymää ja se on luotu birdapp.ui.BirdappUi -luokassa. 
 
-Olen pyrkinyt pitämään käyttöliittymän mahdollisimman erillisenä sovelluslogiikasta. Käyttöliittymä kutsuu vain sopivin parametrein sovelluslogiikan toteuttavan olion birdappServicen metodeja.
+Avatessaan sovelluksen käyttäjä näkee ensimmäisenä sisäänkirjautumisikkunan, jolla käyttäjä voi joko kirjautua sisään tai luoda uuden käyttäjän. Kaikki ikkunat on luotu omina Scene-olioinaan. Näkymistä yksi kerrallaan on näkyvänä eli sijoitettuna sovelluksen stageen. 
 
-Kun sovelluksen todolistan tilanne muuttuu, eli uusi käyttäjä kirjautuu, todoja merkitään tehdyksi tai niitä luodaan, kutsutaan sovelluksen metodia redrawTodolist joka renderöi todolistanäkymän uudelleen sovelluslogiikalta saamansa näytettävien todojen listan perusteella.
+Kun uusi käyttäjä kirjautuu, sovellus hakee birds -tekstitiedostosta Boolean-tyyppisen listan, mitä lintuja on jo havainnoitu ja tämän perusteella asettaa osan checkboxeista checkatuiksi. Käyttäjän kirjautuessa ulos, metodi checkIfChecked käy boksit läpi ja katsoo, missä näistä on check-merkki, ja tallentaa näistä Boolean-tyyppisen listan, joka tallennetaan myös tekstitiedostoon.
 
 
 ## Sovelluslogiikka
 
-Sovelluksen loogisen datamallin muodostavat luokat User ja Birdapp, jotka kuvaavat käyttäjiä sekä käyttäjien havainnoimia lintuja:
+Luokka User kuvaa sovelluksen käyttäjiä ja luokka Birdapp yhdistää nähdyt linnut käyttäjiin. 
 
 ![Sovelluslogiikka](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kuvat/Sovelluslogiikka.png)
 
-Toiminnallisista kokonaisuuksista vastaa luokan BirdappService ainoa olio. Luokka tarjoaa kaikille käyttöliittymän toiminnoille oman metodinsa. Tämä on vielä keskeneräinen.
+Toiminnallisuuksista vastuussa on BirdappService-luokka. Se tarjoaa kaikille käyttöliittymän toiminnoille oman metodinsa. Toiminnalisuuksia ovat esimerkiksi:
+- boolean login(String username)
+- ArrayList<Boolean> getChecked()
+- boolean createUser(String username, String name)
+- boolean saveChecks(ArrayList<Boolean> list)
+  
+BirdappService-luokka pystyy hyödyntämään tietojen tallenusta, sillä se on yhteydessä rajapintoihin BirdappDao ja UserDao, niitä toteuttavien luokkien kautta.
 
-Alla on BirdappServicen ja ohjelman muiden osien suhdetta kuvaava pakkauskaavio:
+Alla on Birdapp-projektin pakkauskaavio:
 
 ![Pakkausrakenne](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/Valmispakkaus.png)
 
 
 ## Tietojen pysyväistallennus
 
-Pakkauksen birdapp.dao luokat FileBirdappDao ja FileUserDao pitävät huolta tietojen tallentamisesta tiedostoihin.
+Luokat FileBirdappDao ja FileUserDao birdapp.dao-pakkauksessa hoitavat tietojen tallentamisen tekstitiedostoihin.
 
-Luokat noudattavat Data Access Object -suunnittelumallia ja ne on tarvittaessa mahdollista korvata uusilla toteutuksilla, jos sovelluksesta syntyvän aineiston tallennustapaa päätetään vaihtaa. Luokat on eristetty rajapintojen BirdappDao sekä UserDao taakse eikä sovelluslogiikka käytä luokkia suoraan.
+Luokat on tehty Data Access Object -suunnittelumallia hyödyntäen ja ne on eristetty rajapintojen BirdappDao sekä UserDao taakse, mikä mahdollistaa sen, ettei sovelluslogiikka käytä luokkia suoraan.
 
 ### Tiedostot 
 
-Sovellus tallentaa luodut käyttäjätunnukset omaan tiedostoonsa. Myöhemmin sovellus tallentaa myös käyttäjän lintuhavainnot erilliseen tiedostoon, mutta tämän toteutus on vielä kesken.
+Sovellus tallentaa luodut käyttäjätunnukset omaan tiedostoonsa sekä käyttäjien merkitsemät ruudut omaan tiedostoonsa. Eli, jos käyttäjä on nähnyt linnun ja rastittanut kyseisen linnun ruudun, niin teksti-tiedostoon tallennetaan siihen kohtaan true ja muihin eli tyhjien ruutujen kohtaan false.
 
-Sovelluksen juureen sijoitettu konfiguraatiotiedosto config.properties määrittelee tiedostojen nimet.
+Sovelluksen juuressa on konfiguraatiotiedosto nimeltään config.properties, jossa määritellään tiedostojen nimet.
 
-Sovellus tallentaa käyttäjät alla havainnoidulla tavalla:
+Sovellus tallentaa käyttäjät tekstitiedostoon alla havainnoidulla tavalla:
 
 `jennalack;Jenna Lackbergh`
 
-eli ensin käyttäjätunnus, jonka jälkeen tulee käyttäjän nimi puolipisteellä erotettuna.
+eli ensin merkitään käyttäjätunnus, jonka jälkeen lukee käyttäjän nimi, joka on erotettu käyttäjätunnuksesta puolipisteellä.
+
+Havainnoiduiksi merkityt linnut sovellus tallentaa seuraavalla tavalla:
+
+`jennalack;[true, false, true, false, false, false, false, false]`
+
+eli ensin on taas käyttäjätunnus, jonka jälkeen on lista onko checkboxissa check vai ei. Lyhensin listaa tähän selvyyden vuoksi. Varsinaisessa tekstitiedostossa lista sisältää 40 boolean-totuusarvoa.
 
 ### Päätoiminnallisuudet
+
+Alla on kuvattuna muutama sovelluksen päätoiminnallisuuksista sekvenssikaavioina.
 
 #### Uuden käyttäjän luominen
 
@@ -59,6 +73,9 @@ eli ensin käyttäjätunnus, jonka jälkeen tulee käyttäjän nimi puolipisteel
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
-Yritän vielä kehittää sovellusta, sillä tällä hetkellä se ei tallenna lintuhavaintoja käyttäjäkohtaisesti. Sovelluksen kehittämisessä on siis vielä paljon työtä. 
-
-Testaukseen en ole ehtinyt käyttää vielä yhtään aikaa, joten se täytyy aloittaa heti kun saan sovellusta vähän edistettyä.
+- BirdappUi-luokassa voisi eriyttää toiminnallisuuksia omiksi metodeikseen.
+- Muuttujat ja metodit voisivat olla selkeämmin nimettyjä
+- Birdapp-luokka on tällä hetkellä melko turha eli sen voisi poistaa tai muuttaa sovelluksen logiikkaa siten, että luokka olisi tarpeellisempi
+- Ohjelmassa on vielä jonkin verran toisteisuutta. Joitakin muuttujia olisi voinut jättää luomatta ja käyttää toisen sovelluksen vastaavia muuttujia
+- Testauksessa on paljon kehitettävää
+- Koodi voisi olla selkeämpää
