@@ -70,6 +70,9 @@ Alla on kuvattuna muutama sovelluksen päätoiminnallisuuksista sekvenssikaavioi
 
 ![Sekvenssikaavio](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kuvat/Sekvenssikaavio%20(1).png)
 
+#### Sisäänkirjautuminen
+
+![Sisaankirjautuminen_kaavio](https://github.com/jennalack/ot-harjoitustyo/blob/master/lintuapp/dokumentaatio/kuvat/sisaankirjautuminen.png)
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
